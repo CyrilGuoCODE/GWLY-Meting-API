@@ -28,7 +28,7 @@ jobs:
         node-version: ['18.x', '19.x', '20.x', '21.x']
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -42,7 +42,7 @@ jobs:
     needs: [unit-test]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -67,7 +67,7 @@ jobs:
         run: docker save meting-api:latest | gzip -1cf > meting.tar.gz
 
       - name: Upload Docker image
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: meting.tar.gz
           path: meting.tar.gz
@@ -78,7 +78,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18
