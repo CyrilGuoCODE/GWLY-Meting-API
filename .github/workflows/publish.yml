@@ -112,7 +112,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: meting
+          project: gwlymusic
           entrypoint: deno.js
 
   release-docker:
